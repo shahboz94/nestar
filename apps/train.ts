@@ -4,10 +4,10 @@ function printNumbers() {
 	const interval = setInterval(() => {
 		console.log(num);
 		if (num === 5) {
-			clearInterval(interval); // 5 chiqqach to‘xtaydi
+			clearInterval(interval);
 		}
 		num++;
-	}, 1000); // har 1 soniyada ishlaydi
+	}, 1000);
 }
 
 printNumbers();
