@@ -9,104 +9,104 @@ const MemberSchema = new Schema(
 			default: MemberType.USER,
 		},
 
-		MemberStatus: {
+		memberStatus: {
 			type: String,
 			enum: MemberStatus,
 			default: MemberStatus.ACTIVE,
 		},
 
-		MemberAuthType: {
+		memberAuthType: {
 			type: String,
 			enum: MemberAuthType,
 			default: MemberAuthType.PHONE,
 		},
 
-		MemberPHONE: {
+		memberPhone: {
 			type: String,
 			index: { unique: true, sparse: true },
 			required: true,
 		},
 
-		MemberNick: {
+		memberNick: {
 			type: String,
 			index: { unique: true, sparse: true },
 			required: true,
 		},
 
-		MemberPassword: {
+		memberPassword: {
 			type: String,
 			select: false,
 			required: true,
 		},
 
-		MemberFullName: {
+		memberFullName: {
 			type: String,
 		},
 
-		MemberImage: {
+		memberImage: {
 			type: String,
 			default: '',
 		},
 
-		MemberAddress: {
+		memberAddress: {
 			type: String,
 		},
 
-		MemberDesc: {
+		memberDesc: {
 			type: String,
 		},
 
-		MemberProperties: {
+		memberProperties: {
 			type: Number,
 			default: 0,
 		},
 
-		MemberArticles: {
+		memberArticles: {
 			type: Number,
 			default: 0,
 		},
 
-		MemberFollowers: {
+		memberFollowers: {
 			type: Number,
 			default: 0,
 		},
 
-		MemberFollowings: {
+		memberFollowings: {
 			type: Number,
 			default: 0,
 		},
 
-		MemberPoints: {
+		memberPoints: {
 			type: Number,
 			default: 0,
 		},
 
-		MemberLikes: {
+		memberLikes: {
 			type: Number,
 			default: 0,
 		},
 
-		MemberViews: {
+		memberViews: {
 			type: Number,
 			default: 0,
 		},
 
-		MemberComments: {
+		memberComments: {
 			type: Number,
 			default: 0,
 		},
 
-		MemberRank: {
+		memberRank: {
 			type: Number,
 			default: 0,
 		},
 
-		MemberWarnings: {
+		memberWarnings: {
 			type: Number,
 			default: 0,
 		},
 
-		MemberBlocks: {
+		memberBlocks: {
 			type: Number,
 			default: 0,
 		},
