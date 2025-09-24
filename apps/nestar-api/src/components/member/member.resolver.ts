@@ -1,7 +1,7 @@
 import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
 import { MemberService } from './member.service';
 import { UsePipes, ValidationPipe } from '@nestjs/common';
-import { MemberInput } from '../../libs/dto/member/member.input';
+import { MemberInput, LoginInput } from '../../libs/dto/member/member.input';
 
 @Resolver()
 export class MemberResolver {
@@ -15,8 +15,9 @@ export class MemberResolver {
 		return this.memberService.signup();
 	}
 
+	@UsePipes(ValidationPipe)
 	@Mutation(() => String)
-	public async login(): Promise<string> {
+	public async login(@Args('input') input: LoginInput): Promise<string> {
 		console.log('Mutation: login');
 		return this.memberService.login();
 	}
