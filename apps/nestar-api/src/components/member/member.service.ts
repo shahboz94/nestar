@@ -13,17 +13,19 @@ export class MemberService {
 		@InjectModel('Member') private readonly memberModel: Model<Member>,
 		private authService: AuthService,
 	) {}
+
 	public async signup(input: MemberInput): Promise<Member> {
 		input.memberPassword = await this.authService.hashPassword(input.memberPassword);
 		try {
 			const result = await this.memberModel.create(input);
-			// TODO: Authentication via Token
+			result.accessToken = await this.authService.createToken(result);
 			return result;
 		} catch (err) {
 			console.log('Error, Service.model:', err.message);
 			throw new BadRequestException(Message.USED_MEMBER_NICK_OR_PHONE);
 		}
 	}
+
 	public async login(input: LoginInput): Promise<Member> {
 		const { memberNick, memberPassword } = input;
 		const response: Member = await this.memberModel
@@ -39,11 +41,15 @@ export class MemberService {
 
 		const isMatch = await this.authService.comparePasswords(input.memberPassword, response.memberPassword);
 		if (!isMatch) throw new InternalServerErrorException(Message.WRONG_PASSWORD);
+		response.accessToken = await this.authService.createToken(response);
+
 		return response;
 	}
+
 	public async updateMember(): Promise<string> {
 		return 'updateMember executed!';
 	}
+
 	public async getMember(): Promise<string> {
 		return 'getMember executed!';
 	}
