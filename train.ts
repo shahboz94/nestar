@@ -1,3 +1,27 @@
+//TASK ZO:
+
+function areArraysEqual(arr1: any[], arr2: any[]): boolean {
+	const sortedArr1 = arr1.every((el) => arr2.includes(el));
+	console.log(sortedArr1);
+	return sortedArr1;
+}
+
+areArraysEqual([1, 2, 3], [3, 1, 2]);
+areArraysEqual([1, 2, 3], [3, 1, 2, 1, 1, 1]);
+areArraysEqual([1, 2, 3, 4], [4, 1, 2, 3]);
+areArraysEqual([1, 2, 3, 4], [1, 5, 2, 3]);
+
+// Shunday function yozing, u 2 ta array parametr qabul qilsin.
+// Siz bu ikki arrayning qiymatlari o'xshash bo'lishini
+// (ya'ni, ularning barcha elementlari bir xil bo'lishini) tekshirishingiz kerak.
+
+// MASALAN:
+// areArraysEqual([1, 2, 3], [3, 1, 2]) // true
+// areArraysEqual([1, 2, 3], [3, 1, 2, 1]) // true
+// areArraysEqual([1, 2, 3], [4, 1, 2]) // false
+
+/**
+
 //TASK ZN:
 
 function rotateArray(arr: number[], index: number): number[] {
@@ -15,7 +39,9 @@ rotateArray([10, 20, 30, 40, 50, 60], 2);
 // raqamlarni indeksdan tashqarida bo'lgan raqamlar bilan o'rnini
 // almashtirib qaytarsin.
 
+**/
 /**
+ 
 // TASK ZM:
 
 function reverseInteger(num: number): number {
