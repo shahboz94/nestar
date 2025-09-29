@@ -54,11 +54,13 @@ export class MemberResolver {
 		delete input._id;
 		return this.memberService.updateMember(memberId, input);
 	}
-
-	@Query(() => String)
-	public async getMember(): Promise<string> {
+	@UseGuards(AuthGuard)
+	@Query(() => Member)
+	public async getMember(@Args('memberId') input: string, @AuthMember('_id') memberId: ObjectId): Promise<Member> {
 		console.log('Query: getMember');
-		return this.memberService.getMember();
+		console.log('memberId:', memberId);
+		const targetId = shapeIntoMongooseObjectId(input);
+		return this.memberService.getMember(targetId);
 	}
 
 	//** ADMIN **/
