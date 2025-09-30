@@ -26,6 +26,7 @@ export class MemberInput {
 	@Field(() => MemberAuthType, { nullable: true })
 	memberAuthType?: MemberAuthType;
 }
+
 @InputType()
 export class LoginInput {
 	@IsNotEmpty()
