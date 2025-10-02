@@ -22,6 +22,7 @@ export enum MemberAuthType {
 	PHONE = 'PHONE',
 	EMAIL = 'EMAIL',
 	TELEGRAM = 'TELEGRAM',
+	PHONEACTIVE = 'PHONEACTIVE',
 }
 registerEnumType(MemberAuthType, {
 	name: 'MemberAuthType',
