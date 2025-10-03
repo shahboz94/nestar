@@ -1,34 +1,59 @@
-// TASK ZP:
+// TASK ZQ:
 
-function Balanced(input: string): void {
-	let balance = 0;
-	let i = 0;
+function areArraysEqual(arr1: any[], arr2: any[]): boolean {
+	const sortedArr1 = arr1.every((el) => arr2.includes(el));
 
-	while (i < input.length) {
-		const char = input[i];
-
-		if (char === '(') {
-			balance++;
-		} else if (char === ')') {
-			balance--;
-			if (balance < 0) {
-				console.log(false);
-				return;
-			}
-		}
-		i++;
-	}
-
-	console.log(balance === 0);
+	console.log(sortedArr1);
+	return sortedArr1;
 }
 
-Balanced('string()ichida(qavslar)soni()balansda');
+// Shunday function yozing, u 2 ta array parametr qabul qilsin.
+// Siz bu ikki arrayning qiymatlari o'xshash bo'lishini
+// (ya'ni, ularning barcha elementlari bir xil bo'lishini) tekshirishingiz kerak.
 
-Balanced('string(ichida(qavslar))soni)(');
+// MASALAN:
+areArraysEqual([1, 2, 3], [3, 1, 2, 1, 1, 1]);
+areArraysEqual([1, 2, 3], [3, 1, 2]); // true
+areArraysEqual([1, 2, 3], [3, 1, 2, 1]); // true
+areArraysEqual([1, 2, 3], [4, 1, 2]); // false
+
+/**
+  
+
+// TASK ZP:
+
+// function Balanced(input: string): void {
+//   let balance = 0;
+//   let i = 0;
+
+//   while (i < input.length) {
+//     const char = input[i];
+
+//     if (char === '(') {
+//       balance++;
+//     } else if (char === ')') {
+//       balance--;
+//       if (balance < 0) {
+//         console.log(false);
+//         return;
+//       }
+//     }
+//     i++;
+//   }
+
+//   console.log(balance === 0);
+// }
+
+// Balanced('string()ichida(qavslar)soni()balansda');
+
+// Balanced('string(ichida(qavslar))soni)(');
 
 // Shunday function yozing, u parametrdagi string ichidagi qavslar miqdori balansda ekanligini aniqlasin.
 //  Ya'ni ochish("(") va yopish(")") qavslar soni bir xil bolishi kerak.
 // MASALAN: areParenthesesBalanced("string()ichida(qavslar)soni()balansda") return true
+
+
+**/
 
 /**
 
