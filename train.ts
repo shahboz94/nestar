@@ -1,4 +1,23 @@
 // TASK ZQ:
+function findDuplicates(arr: number[]): number[] {
+	const result = arr
+		.filter((num, i) => arr.indexOf(num) !== i)
+		.filter((num, i, dupnum) => dupnum.indexOf(num) === i)
+		.sort((a, b) => a - b);
+
+	console.log(result);
+	return result;
+}
+
+findDuplicates([1, 2, 3, 4, 5, 4, 3, 4]); // [3, 4]
+
+// Shunday function yozing, bu function berilgan array parametr
+// ichida ikki marotaba yoki undan ko'p takrorlangan sonlarni alohida
+// array'da yagonadan qaytarsin qaytarsin.
+
+// MASALAN: findDuplicates([1,2,3,4,5,4,3,4]); return [3, 4];
+
+/**
 
 function areArraysEqual(arr1: any[], arr2: any[]): boolean {
 	const sortedArr1 = arr1.every((el) => arr2.includes(el));
@@ -17,6 +36,7 @@ areArraysEqual([1, 2, 3], [3, 1, 2]); // true
 areArraysEqual([1, 2, 3], [3, 1, 2, 1]); // true
 areArraysEqual([1, 2, 3], [4, 1, 2]); // false
 
+**/
 /**
   
 
