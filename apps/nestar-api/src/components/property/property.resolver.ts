@@ -45,7 +45,7 @@ export class PropertyResolver {
 	}
 	@Roles(MemberType.AGENT)
 	@UseGuards(RolesGuard)
-	@Mutation(() => Property)
+	@Mutation((returns) => Property)
 	public async updateProperty(
 		@Args('input') input: PropertyUpdate,
 		@AuthMember('_id') memberId: ObjectId,
@@ -91,10 +91,10 @@ export class PropertyResolver {
 	@Roles(MemberType.ADMIN)
 	@UseGuards(RolesGuard)
 	@Mutation((returns) => Property)
-	public async updatePropertiesByAdmin(@Args('input') input: PropertyUpdate): Promise<Property> {
-		console.log('Mutation: updatePropertiesByAdmin');
+	public async updatePropertyByAdmin(@Args('input') input: PropertyUpdate): Promise<Property> {
+		console.log('Mutation: updatePropertyByAdmin');
 		input._id = shapeIntoMongoObjectId(input._id);
-		return await this.propertyService.updatePropertiesByAdmin(input);
+		return await this.propertyService.updatePropertyByAdmin(input);
 	}
 
 	@Roles(MemberType.ADMIN)
