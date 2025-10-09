@@ -34,7 +34,7 @@ export class PropertyResolver {
 	}
 
 	@UseGuards(WithoutGuard)
-	@Query((returns) => Property)
+	@Query((returns) => Property) //decorator
 	public async getProperty(
 		@Args('propertyId') input: string,
 		@AuthMember('_id') memberId: ObjectId,
@@ -43,6 +43,16 @@ export class PropertyResolver {
 		const propertyId = shapeIntoMongoObjectId(input);
 		return await this.propertyService.getProperty(memberId, propertyId);
 	}
+	//@UseGuards(WithoutGuard) @Query((returns) => Properties)
+	// public async getProperties( @Args('input') input: PropertiesInquiry,
+	// @AuthMember('_id') memberId: ObjectId, ): Promise<Properties>
+	// { console.log('Query: getProperties');
+	// return await this.propertyService.getProperties(memberId, input);
+	//  getPropertis Query grafql Api miz type Propertiesda authorization qilib
+	//  WithoutGuard berdik public async getProperties method input parametr sifatida
+	// pas qilib frontendan kelgan member Idni kiritdik va u object typeda sababi shape in qilganmiz
+	// Promise Properties qaytaradi kegin standartga asosan log qilyapmiz propertyService objectimizni
+	// getProperties methodmizga memberIdva inputni pass qilib kuttirib return qilyapmiz.
 	@Roles(MemberType.AGENT)
 	@UseGuards(RolesGuard)
 	@Mutation((returns) => Property)

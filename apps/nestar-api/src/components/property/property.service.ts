@@ -67,7 +67,7 @@ export class PropertyService {
 	}
 
 	public async propertyStatsEditor(input: StatisticModifier): Promise<Property> {
-		const { _id, targetKey, modifier } = input;
+		const { _id, targetKey, modifier } = input; //des tirakshin
 		return await this.propertyModel
 			.findByIdAndUpdate(
 				_id,
@@ -80,7 +80,7 @@ export class PropertyService {
 	}
 
 	public async updateProperty(memberId: ObjectId, input: PropertyUpdate): Promise<Property> {
-		let { propertyStatus, soldAt, deletedAt } = input;
+		let { propertyStatus, soldAt, deletedAt } = input; //des tirakshin
 		const search: T = {
 			_id: input._id,
 			memberId: memberId,
@@ -110,16 +110,19 @@ export class PropertyService {
 	public async getProperties(memberId: ObjectId, input: PropertiesInquiry): Promise<Properties> {
 		const match: T = { propertyStatus: PropertyStatus.ACTIVE };
 		const sort: T = { [input?.sort ?? 'createdAt']: input?.direction ?? Direction.DESC };
-
+		//object literal yaratilatilib dinamik kalit ishlatilmoqda: nallish  operatori chap tomon null yoki undefined bo‘lsa, o‘ng oldi
 		this.shapeMatchQuery(match, input);
 		console.log('match', match);
 
 		const result = await this.propertyModel
 			.aggregate([
+				// propertyschemaModel aggregate qilib
+				// paiplayn hosil qildik
 				{ $match: match },
 				{ $sort: sort },
 				{
 					$facet: {
+						// fesit paiplayn ichida yana alohida paiplayn hosil qilishda ishlatiladi
 						list: [
 							{ $skip: (input.page - 1) * input.limit },
 							{ $limit: input.limit },
@@ -229,7 +232,7 @@ export class PropertyService {
 	}
 
 	public async updatePropertyByAdmin(input: PropertyUpdate): Promise<Property> {
-		let { propertyStatus, soldAt, deletedAt } = input;
+		let { propertyStatus, soldAt, deletedAt } = input; //des tirakshin
 		const search: T = {
 			_id: input._id,
 			propertyStatus: PropertyStatus.ACTIVE,
