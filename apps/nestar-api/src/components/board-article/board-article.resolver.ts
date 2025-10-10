@@ -21,7 +21,7 @@ import { Roles } from '../auth/decorators/roles.decorator';
 export class BoardArticleResolver {
 	constructor(private readonly boardArticleService: BoardArticleService) {}
 
-	@UseGuards(AuthGuard)
+	@UseGuards(AuthGuard) //Auzin tiket bolganlar
 	@Mutation(() => BoardArticle)
 	public async createBoardArticle(
 		@Args('input') input: BoardArticleInput,
