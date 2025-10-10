@@ -1,3 +1,26 @@
+// TASK ZR:
+
+function countNumberAndLetters(str) {
+	const number = (str.match(/[0-9]/g) || []).length;
+	const letter = (str.match(/[a-zA-Z]/g) || []).length;
+
+	const result = { number, letter };
+	console.log(result);
+	return result;
+}
+
+countNumberAndLetters('string152%¥');
+countNumberAndLetters('abc123XYZ');
+countNumberAndLetters('!@#$%^&*()');
+
+// Shunday function yozing, bu function,
+// berilgan parametr string tarkibidagi raqam va sonlarni
+// sanab object sifatida qaytarsin.
+
+// MASALAN: countNumberAndLetters(“string152%\¥”); return {number: 3, letter: 6};
+
+/**
+
 // TASK ZQ:
 function findDuplicates(arr: number[]): number[] {
 	const result = arr
@@ -17,6 +40,7 @@ findDuplicates([1, 2, 3, 4, 5, 4, 3, 4]); // [3, 4]
 
 // MASALAN: findDuplicates([1,2,3,4,5,4,3,4]); return [3, 4];
 
+**/
 /**
 
 function areArraysEqual(arr1: any[], arr2: any[]): boolean {
@@ -74,7 +98,6 @@ areArraysEqual([1, 2, 3], [4, 1, 2]); // false
 
 
 **/
-
 /**
 
 //TASK ZO:
