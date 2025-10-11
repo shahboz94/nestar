@@ -1,4 +1,19 @@
-// TASK ZR:
+// TASK ZS:
+function singleNumber(arr) {
+	const result = arr.reduce((acc, num) => acc ^ num, 0);
+	console.log(result);
+	return result;
+}
+
+singleNumber([4, 2, 1, 2, 1]);
+
+// Shunday function yozing, bu function parametrdagi array ichida
+// bir marotaba takrorlangan element'ni qaytarsin
+
+// MASALAN: singleNumber([4, 2, 1, 2, 1]); return 4;
+
+/**
+ // TASK ZR:
 
 function countNumberAndLetters(str) {
 	const number = (str.match(/[0-9]/g) || []).length;
@@ -19,6 +34,7 @@ countNumberAndLetters('!@#$%^&*()');
 
 // MASALAN: countNumberAndLetters(“string152%\¥”); return {number: 3, letter: 6};
 
+**/
 /**
 
 // TASK ZQ:
