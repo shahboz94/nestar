@@ -6,6 +6,7 @@ import LikeSchema from '../../schemas/Like.model';
 @Module({
 	imports: [
 		MongooseModule.forFeature([
+			//ficher qilyapmiz
 			{
 				name: 'Like',
 				schema: LikeSchema,
