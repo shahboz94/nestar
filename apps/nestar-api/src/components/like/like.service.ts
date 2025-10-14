@@ -9,7 +9,6 @@ import { OrdinaryInquiry } from '../../libs/dto/property/property.input';
 import { Properties } from '../../libs/dto/property/property';
 import { LikeGroup } from '../../libs/enums/like.enum';
 import { ObjectId } from 'mongoose';
-import { updateLocale } from 'moment';
 import { lookupFavorite } from '../../libs/config';
 
 @Injectable()

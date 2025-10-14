@@ -64,10 +64,8 @@ export class PropertyService {
 				targetProperty.propertyViews++;
 			}
 
-			//meLiked
 			const LikeInput = { memberId: memberId, likeRefId: propertyId, likeGroup: LikeGroup.PROPERTY };
 			targetProperty.meLiked = await this.likeService.checkLikeExistence(LikeInput);
-			// meFollowed
 		}
 
 		targetProperty.memberData = await this.memberService.getMember(null, targetProperty.memberId);
@@ -105,7 +103,7 @@ export class PropertyService {
 	public async getProperties(memberId: ObjectId, input: PropertiesInquiry): Promise<Properties> {
 		const match: T = { propertyStatus: PropertyStatus.ACTIVE };
 		const sort: T = { [input?.sort ?? 'createdAt']: input?.direction ?? Direction.DESC };
-		//object literal yaratilatilib dinamik kalit ishlatilmoqda: nallish  operatori chap tomon null yoki undefined bo‘lsa, o‘ng oldi
+		//object literal yaratlib dinamik kalit ishlatilmoqda: nallish  operatori chap tomon null yoki undefined bo‘lsa, o‘ng oldi
 		this.shapeMatchQuery(match, input);
 		console.log('match', match);
 
@@ -134,6 +132,7 @@ export class PropertyService {
 
 		return result[0];
 	}
+
 	private shapeMatchQuery(match: T, input: PropertiesInquiry): void {
 		const {
 			memberId,
