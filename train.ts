@@ -1,3 +1,31 @@
+// TASK ZU:
+
+function sumOfUnique(arr) {
+	const result = arr
+		.filter((num) => arr.indexOf(num) === arr.lastIndexOf(num)) //
+		.reduce((sum, num) => sum + num, 0);
+
+	console.log(result);
+	return result;
+}
+
+sumOfUnique([1, 2, 3, 2]);
+sumOfUnique([1, 2, 3, 4, 5]);
+sumOfUnique([1, 1, 1, 1, 1]);
+
+// Shunday function yozing, va bu function parametr sifatida
+// raqamlardan iborat array'ni qabul qilsin. Function'ning vazifasi,
+// berilgan parametr array tarkibida takrorlanmagan raqamlarni topib
+// ularni yig'indisini qaytarsin.
+
+// MASALAN: sumOfUnique([1,2,3,2]); return 4;
+
+// Yuqoridagi misolda, argument sifatida pass qilinayotgan array
+// tarkibida bir marotabadan ortiq takrorlanmagan raqamlar, bular '1', '3'.
+// Va natija sifatida yig'indi 4'ga teng.
+
+/**
+
 // TASK ZT:
 
 function firstUniqueCharIndex(str) {
@@ -18,6 +46,7 @@ firstUniqueCharIndex('s uccess');
 // Yuqoridagi misolda, 'stamp' so'zi tarkibida barcha harflar bir marotabadan
 // ortiq takrorlanmagan, lekin shartga muvofiq, birinchi topilgan harf indeksi qaytarilmoqda.
 
+**/
 /**
  
 // TASK ZS:
