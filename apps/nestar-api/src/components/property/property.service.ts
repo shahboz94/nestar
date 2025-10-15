@@ -164,7 +164,7 @@ export class PropertyService {
 		}
 	}
 
-	public async getFavorities(memberId: ObjectId, input: OrdinaryInquiry): Promise<Properties> {
+	public async getFavorites(memberId: ObjectId, input: OrdinaryInquiry): Promise<Properties> {
 		return await this.likeService.getFavoriteProperties(memberId, input);
 	}
 
