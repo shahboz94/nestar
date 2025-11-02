@@ -15,7 +15,7 @@ async function bootstrap() {
 	app.use(graphqlUploadExpress({ maxFileSize: 15000000, maxFiles: 10 })); // 15MB
 	app.use('/uploads', express.static('uploads'));
 
-	app.useWebSocketAdapter(new WsAdapter(app));
+	app.useWebSocketAdapter(new WsAdapter(app)); // midelware dizain pettren
 	await app.listen(process.env.PORT_API ?? 3000);
 }
 bootstrap();

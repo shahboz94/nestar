@@ -2,7 +2,7 @@ import { Logger } from '@nestjs/common';
 import { OnGatewayInit, SubscribeMessage, WebSocketGateway } from '@nestjs/websockets';
 import { Server } from 'ws';
 
-@WebSocketGateway({ transports: ['websocket'], secure: false })
+@WebSocketGateway({ transports: ['websocket'], secure: false }) //WebSocketGateway dek
 export class SocketGateway implements OnGatewayInit {
 	private logger: Logger = new Logger('SocketEventsGateway');
 	private summaryClient: number = 0;
@@ -22,7 +22,7 @@ export class SocketGateway implements OnGatewayInit {
 	}
 
 	@SubscribeMessage('message')
-	public handleMessage(client: any, payload: any): string {
+	public handleMessage(client: WebSocket, payload: any): string {
 		return 'Hello world!';
 	}
 }
