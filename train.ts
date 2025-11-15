@@ -1,3 +1,16 @@
+// Create a Map
+const fruits = new Map();
+
+// Set Map Values
+fruits.set({ name: 'apples' }, 500);
+fruits.set('apples', 500);
+fruits.set('bananas', 500);
+fruits.set('oranges', 500);
+
+console.log(fruits);
+console.log(fruits.get('bananas'));
+console.log(fruits.size);
+
 // TASK ZU:
 
 function sumOfUnique(arr) {
